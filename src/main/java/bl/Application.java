@@ -1,38 +1,30 @@
 package bl;
 
 import java.math.BigDecimal;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import service.BookService;
 import model.Book;
 
 public class Application {
-	
-	/**
-	 * Gets an entity manager
-	 */
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("book-persistence-unit");
-	private static EntityManager entityManager = entityManagerFactory.createEntityManager();
-	
-	/**
-	 * Persists the book to the database
-	 */
 
-	private static void persistBook(Book book){
-		entityManager.persist(book);
-	}
-	
-	/**
-	 * Finds the book from the database
-	 */
-	private static Book findBook(Long id){
-		return entityManager.find(Book.class, id);
-	}
-	
 	public static void main(String[] args) {
-		persistBook(new Book(11L, "Spring", "123-76-7867", 564, "Spring in Action", new BigDecimal("1115.37")));
-		Book book = findBook(11L);
-		System.out.println("#"+book);
+		BookService bookService = new BookService();
+		
+		//Remove a Book
+		boolean removeSpringBook = bookService.removeBook(1L);
+		System.out.println("Has the Book with Id 1l Removed : "+removeSpringBook);
+		
+		//Add a Book
+		Book book = bookService.createBook(1L, "Spring", "123-76-7867", 564, "Spring in Action", new BigDecimal("1115.37"));
+		System.out.println("#Book : "+book);	
+		
+		//Find a Book
+		Book findSpringbook = bookService.findBook(1L);
+		System.out.println("Find Book with id 1L # "+findSpringbook);
+		
+		//Update Cost of a Book
+		BigDecimal raiseCostFactor = new BigDecimal(1000);
+		boolean isCostUpdated = bookService.updateCostOfBook(1L, raiseCostFactor);
+		System.out.println("Did Cost of Book get updated "+isCostUpdated);
+		
  }
 }
