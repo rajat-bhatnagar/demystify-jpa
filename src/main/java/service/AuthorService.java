@@ -1,8 +1,9 @@
 package service;
 
 import java.util.Date;
-import model.Author;
-import bl.Language;
+
+import model.entity.Author;
+import bl.types.Language;
 
 public interface AuthorService {
 

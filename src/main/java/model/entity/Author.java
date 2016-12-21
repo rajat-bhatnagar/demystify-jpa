@@ -1,4 +1,4 @@
-package model;
+package model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,14 +14,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import bl.Language;
+import bl.types.Language;
 
 /**
  * Entity implementation class for Entity: Author
  *
  */
 @Entity
-@Table(name="author")
+@Table(name="author", schema="rso_jpa")
 
 public class Author implements Serializable {	
 	private static final long serialVersionUID = 1L;

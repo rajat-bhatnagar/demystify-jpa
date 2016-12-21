@@ -1,10 +1,12 @@
 package service.impl;
 
 import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import model.Author;
-import bl.Language;
+
+import model.entity.Author;
+import bl.types.Language;
 import service.AuthorService;
 
 public class AuthorServiceImpl implements AuthorService {

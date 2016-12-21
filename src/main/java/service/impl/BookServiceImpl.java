@@ -7,8 +7,8 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import model.entity.Book;
 import service.BookService;
-import model.Book;
 
 public class BookServiceImpl implements BookService{
 

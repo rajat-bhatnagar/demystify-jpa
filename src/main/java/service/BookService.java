@@ -9,7 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import model.Book;
+import model.entity.Book;
 
 /*
  * BookService does CRUD operations on Book Entity by establishing an EntityTransaction

@@ -2,12 +2,15 @@ package bl;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import model.Author;
-import model.Book;
+
+import model.entity.Author;
+import model.entity.Book;
+import bl.types.Language;
 import service.impl.AuthorServiceImpl;
 import service.impl.BookServiceImpl;
 
