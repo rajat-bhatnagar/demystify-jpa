@@ -25,12 +25,16 @@ import bl.Language;
 
 public class Author implements Serializable {	
 	private static final long serialVersionUID = 1L;
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	@Column(name="bio")
+	
+	@Column(name="bio", length=5000)
 	private String bio;
+	
 	@Column(name="firstName", length=40)
 	private String firstName;
+	
 	@Column(name="lastName", length=40)
 	private String lastName;
 	
@@ -51,6 +55,16 @@ public class Author implements Serializable {
 
 	public Long getId() {
 		return id;
+	}
+	
+	public Author(String bio, String firstName, String lastName,
+			Language language, Date dateOfBirth) {
+		super();
+		this.bio = bio;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.language = language;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public void setId(Long id) {
@@ -96,4 +110,12 @@ public class Author implements Serializable {
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
+
+	@Override
+	public String toString() {
+		return "Author [id=" + id + ", bio=" + bio + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", language=" + language
+				+ ", dateOfBirth=" + dateOfBirth + "]";
+	}
+	
 }
