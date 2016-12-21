@@ -93,8 +93,6 @@ crashlytics-build.properties
 fabric.properties
 /target/
 
-*.ddl
-
 #mac
 *.DS_Store
 .AppleDouble

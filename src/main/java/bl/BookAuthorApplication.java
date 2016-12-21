@@ -25,7 +25,7 @@ public class BookAuthorApplication {
 
 	public static void main(String[] args){
 		BookServiceImpl bookService = new BookServiceImpl(entityManager, entityTransaction);
-		
+			
 		//Remove a Book
 		boolean removeSpringBook = bookService.removeBook(1L);
 		System.out.println("Has the Book with Id 1l Removed : "+removeSpringBook);
