@@ -1,10 +1,15 @@
 package model.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,14 @@ public class CD {
 	private String title;
 	private Float totalDuration;
 	private Float unitcost;
+	
+	//Doing one to Many relationship b/w a CD and a Musician by Join Column strategy
+	//Several Musicians exist on a CD
+	//By this Musician will have a FK to CD PK
+	
+	@OneToMany
+	@JoinColumn(name = "cd_fk")
+	private Set<Musician> musicians = new HashSet<>();
 	
 	public CD() {
 		super();
@@ -73,4 +86,21 @@ public class CD {
 	public void setUnitcost(Float unitcost) {
 		this.unitcost = unitcost;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Set<Musician> getMusicians() {
+		return musicians;
+	}
+
+	public void setMusicians(Set<Musician> musicians) {
+		this.musicians = musicians;
+	}
+	
 }
