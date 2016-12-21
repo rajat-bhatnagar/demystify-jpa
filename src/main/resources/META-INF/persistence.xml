@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="book-persistence-unit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<mapping-file>META-INF/cd_mapping.xml</mapping-file>
 		<class>model.entity.Book</class>
 		<class>model.entity.Author</class>
 		<class>model.entity.CD</class>
@@ -14,7 +15,7 @@
 	        <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
 	        <property name="javax.persistence.schema-generation.scripts.create-target" value="create.ddl"/>
 	        <property name="javax.persistence.schema-generation.scripts.drop-target" value="drop.ddl"/> -->
-			<!-- Portable properties JPA -->
+			<!-- Persistence Provider Properties -->
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="password" />
 			<property name="hibernate.show_sql" value="true" />
