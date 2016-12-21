@@ -5,6 +5,7 @@
 	<persistence-unit name="book-persistence-unit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>model.Book</class>
+		<class>model.Author</class>
 		<properties>
 			<!-- Portable properties JPA -->
 			<!-- Commented this section as generating scripts in production environments is an overkill -->
