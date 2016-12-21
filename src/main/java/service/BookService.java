@@ -1,10 +1,14 @@
 package service;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
 import model.Book;
 
 /*
@@ -20,17 +24,27 @@ public class BookService {
 	private EntityTransaction entityTransaction = entityManager.getTransaction();
 	
 	/**
+	 * Gets the Current time stamp in String format and is used whenever a new instance of Book is created
+	 */
+	private String getCurrentTimestamp() {
+		return new SimpleDateFormat("yyyy/MM/dd HH:mm").format(new Date());
+	}
+	
+	/**
 	 * Persists the book to the database
 	 */
-	public Book createBook(Long id, String description, String isbn, int nbOfPage,
+	public Book createBook(String description, String isbn, int nbOfPage,
 			String title, BigDecimal unitCost) {
 		Book book = new Book();
-		book.setId(id);
 		book.setDescription(description);
 		book.setIsbn(isbn);
 		book.setNbOfPage(nbOfPage);
 		book.setTitle(title);
 		book.setUnitCost(unitCost);
+		/**
+		 * Last Updated Time is updated
+		 */
+		book.setLastUpdated(getCurrentTimestamp());
 		entityTransaction.begin();
 		entityManager.persist(book);
 		entityTransaction.commit();
