@@ -5,7 +5,7 @@
                  version="2.1">
 
   <entity class="model.entity.CD">
-    <table name="T_CD"/>
+    <table name="cd"/>
     <attributes>
       <basic name="title">
         <column nullable="false"/>

@@ -10,9 +10,11 @@ import javax.persistence.Persistence;
 
 import model.entity.Author;
 import model.entity.Book;
-import bl.types.Language;
+import model.entity.CD;
 import service.impl.AuthorServiceImpl;
 import service.impl.BookServiceImpl;
+import service.impl.CDServiceImpl;
+import bl.types.Language;
 
 public class BookAuthorApplication {
 	/**
@@ -61,5 +63,22 @@ public class BookAuthorApplication {
 		boolean removeThrillerAuthor = authorService.removeAuthor(3L);
 		System.out.println("Is Author Removed : "+removeThrillerAuthor);
 		
+		CDServiceImpl cdService = new CDServiceImpl(entityManager, entityTransaction);
+		
+		//Add a CD
+		CD addedCD = cdService.createCD("Oye Lucky Lucky Oye", "Bollywood", "Lucky Oye", 35f, 13.87f);
+		System.out.println("CD # "+addedCD);
+		
+		//Update a CD
+		boolean isCDPriceUpdated = cdService.updateCDPrice(21L, 87f);
+		System.out.println("CD Price Updated # "+isCDPriceUpdated);
+		
+		//Find a CD
+		CD findMyCD = cdService.findCD(21L);
+		System.out.println("findMyCD # "+findMyCD);
+		
+		//RemoveCD
+		boolean isCDRemoved = cdService.removeCD(24L);
+		System.out.println("Is CD Removed # "+isCDRemoved);
 	}
 }

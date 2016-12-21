@@ -8,6 +8,7 @@
 		<class>model.entity.Book</class>
 		<class>model.entity.Author</class>
 		<class>model.entity.CD</class>
+		<class>model.entity.Musician</class>
 		<properties>
 			<!-- Portable properties JPA -->
 			<!-- Commented this section as generating scripts in production environments is an overkill -->
