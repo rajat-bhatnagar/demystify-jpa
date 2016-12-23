@@ -2,6 +2,8 @@ package bl;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -99,5 +101,25 @@ public class BookAuthorApplication {
 		//Remove a Musician
 		boolean removeMusician = musicianService.removeMusician(2L);
 		System.out.println("Is Musician removed # "+removeMusician);
+		
+		//Demonstrating Cascade Functionality of JPA
+		/**
+		 * There is a 1 to Many relationship between a CD and Musician's
+		 * We will be creating four musicians and adding them to a CD
+		 * When a CD is persisted it will automatically do an add cascade for musicians
+		 */
+		Set<Musician> indianMusicians = new HashSet<>();
+		indianMusicians.add(new Musician("A R", "Rahman", "Piano"));
+		indianMusicians.add(new Musician("Lata", "MangeshKar", "Harmonium"));
+		indianMusicians.add(new Musician("Zakir", "Hussain", "Tabla"));
+		CD newCD = new CD();
+		newCD.setTitle("Indian Musicians");
+		newCD.setDescription("Indian Musicians");
+		newCD.setTotalDuration(67f);
+		newCD.setGenre("Classical");
+		newCD.setMusicians(indianMusicians);
+		CD addedCDwithCascadeADD = cdService.createCD(newCD);
+		System.out.println("New CD with musicians added # "+addedCDwithCascadeADD);
+		
 	}
 }

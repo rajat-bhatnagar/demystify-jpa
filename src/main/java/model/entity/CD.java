@@ -3,6 +3,7 @@ package model.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,11 @@ public class CD {
 	//Several Musicians exist on a CD
 	//By this Musician will have a FK to CD PK
 	
-	@OneToMany
+	/**
+	 * Added Cascade to CD Entity
+	 * This implies that we will have a Cascade to Musicians whenever CD is added
+	 */
+	@OneToMany(cascade= CascadeType.PERSIST)
 	@JoinColumn(name = "cd_fk")
 	private Set<Musician> musicians = new HashSet<>();
 	

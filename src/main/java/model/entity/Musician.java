@@ -44,6 +44,13 @@ public class Musician implements Serializable {
 		super();
 	} 
 	
+	public Musician(String firstName, String lastName, String preferredInstrument) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.preferredInstrument = preferredInstrument;
+	}
+
 	public Musician(String firstName, String lastName, String bio,
 			Date dateOfBirth, Integer age, String preferredInstrument) {
 		super();

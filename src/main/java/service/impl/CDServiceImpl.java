@@ -64,4 +64,14 @@ public class CDServiceImpl implements CDService {
 		return isCDRemoved;
 	}
 
+	@Override
+	public CD createCD(CD newCD) {
+		if(newCD != null){
+			entityTransaction.begin();
+			entityManager.persist(newCD);
+			entityTransaction.commit();
+		}
+		return newCD;
+	}
+
 }
