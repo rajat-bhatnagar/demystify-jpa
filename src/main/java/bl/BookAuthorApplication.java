@@ -11,9 +11,11 @@ import javax.persistence.Persistence;
 import model.entity.Author;
 import model.entity.Book;
 import model.entity.CD;
+import model.entity.Musician;
 import service.impl.AuthorServiceImpl;
 import service.impl.BookServiceImpl;
 import service.impl.CDServiceImpl;
+import service.impl.MusicianServiceImpl;
 import bl.types.Language;
 
 public class BookAuthorApplication {
@@ -80,5 +82,22 @@ public class BookAuthorApplication {
 		//RemoveCD
 		boolean isCDRemoved = cdService.removeCD(24L);
 		System.out.println("Is CD Removed # "+isCDRemoved);
+		
+		MusicianServiceImpl musicianService = new MusicianServiceImpl(entityManager, entityTransaction);
+		//Add a musician
+		Musician  newMusician = musicianService.addMusician("Tom", "Hanks", "Actor", new java.sql.Date(Calendar.getInstance().getTimeInMillis()) , 54, "Saxophone");
+		System.out.println("Musician # "+newMusician);
+		
+		//Update a musician
+		boolean updatedInstrument = musicianService.updateMusicianInstrument(16L, "Trumpet");
+		System.out.println("Is Musical instrument updated # "+updatedInstrument);
+		
+		//Find a Musician
+		Musician findMusician = musicianService.findMusician(16L);
+		System.out.println(" Is Musician found # "+findMusician);
+		
+		//Remove a Musician
+		boolean removeMusician = musicianService.removeMusician(2L);
+		System.out.println("Is Musician removed # "+removeMusician);
 	}
 }
