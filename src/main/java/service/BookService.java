@@ -16,12 +16,12 @@ import model.entity.Book;
  */
 public interface BookService {
 	
-	public Book createBook(String description, String isbn, int nbOfPage, String title, BigDecimal unitCost);
+	 Book createBook(String description, String isbn, int nbOfPage, String title, BigDecimal unitCost);
 	
-	public boolean removeBook(Long id);
+	 boolean removeBook(Long id);
 	
-	public Book findBook(Long id);
+	 Book findBook(Long id);
 	
-	public boolean updateCostOfBook(Long id , BigDecimal raiseCost);
+	 boolean updateCostOfBook(Long id , BigDecimal raiseCost);
 	
 }

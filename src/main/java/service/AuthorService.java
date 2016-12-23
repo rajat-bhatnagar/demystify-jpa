@@ -16,21 +16,21 @@ public interface AuthorService {
 	 * @param dateOfBirth
 	 * @return Author
 	 */
-	public Author createAuthor(String bio, String firstName, String lastName, Language language, Date dateOfBirth);
+	 Author createAuthor(String bio, String firstName, String lastName, Language language, Date dateOfBirth);
 
 	/**
 	 * Find an Author
 	 * @param id
 	 * @return Author
 	 */
-	public Author findAuthor(Long id);
+	 Author findAuthor(Long id);
 	
 	/**
 	 * Remove an Author
 	 * @param id
 	 * @return boolean
 	 */
-	public boolean removeAuthor(Long id);
+	 boolean removeAuthor(Long id);
 	
 	/**
 	 * Update an Author's language
@@ -38,5 +38,5 @@ public interface AuthorService {
 	 * @param language
 	 * @return boolean
 	 */
-	public boolean updateAuthorLanguage(Long id, Language language);
+	 boolean updateAuthorLanguage(Long id, Language language);
 }
