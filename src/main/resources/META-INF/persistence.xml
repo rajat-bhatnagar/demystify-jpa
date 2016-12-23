@@ -9,6 +9,9 @@
 		<class>model.entity.Author</class>
 		<class>model.entity.CD</class>
 		<class>model.entity.Musician</class>
+		<class>model.entity.University</class>
+		<class>model.entity.Department</class>
+		<class>model.entity.Canteen</class>
 		<properties>
 			<!-- Portable properties JPA -->
 			<!-- Commented this section as generating scripts in production environments is an overkill -->
@@ -20,7 +23,7 @@
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="password" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/rso_jpa" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 		</properties>
