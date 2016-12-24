@@ -45,7 +45,9 @@ public class CDServiceImpl implements CDService {
 			 * Get Managed Entity from Detached entity and persist using entityManager
 			 */
 			entityTransaction.begin();
-			cd.setUnitcost(Float.sum(cd.getUnitcost(), raise));
+			if(cd.getUnitcost() != null){
+				cd.setUnitcost(Float.sum(cd.getUnitcost(), raise));
+			}
 			entityTransaction.commit();
 			isCDPriceUpdated = true;
 		}

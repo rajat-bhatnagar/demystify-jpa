@@ -36,7 +36,7 @@ public class CD {
 	 * Added Cascade to CD Entity
 	 * This implies that we will have a Cascade to Musicians whenever CD is added
 	 */
-	@OneToMany(cascade= CascadeType.PERSIST)
+	@OneToMany(cascade= CascadeType.ALL)
 	@JoinColumn(name = "cd_fk")
 	private Set<Musician> musicians = new HashSet<>();
 	
