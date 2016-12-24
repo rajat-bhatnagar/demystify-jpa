@@ -138,5 +138,11 @@ public class BookAuthorApplication {
 		//Find Musicans who are actors using @NamedQuery
 		System.out.println("Musicians who are Actors # "+musiciansQueryService.findMusiciansActors());
 		
+		//Try to Add an Author with no lastname
+		//Illegal Argument exception will be thrown
+		//Code is commented for now as i do not like exceptions
+		//Author badAuthor = authorService.createAuthor("Thriller Specialist", "Sydney", "", Language.GERMAN, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+		//System.out.println("Exception thrown # "+badAuthor);
+		
 	}
 }

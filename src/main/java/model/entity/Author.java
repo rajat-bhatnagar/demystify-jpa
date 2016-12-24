@@ -10,9 +10,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.apache.commons.lang.StringUtils;
 
 import bl.types.Language;
 
@@ -116,6 +120,21 @@ public class Author implements Serializable {
 		return "Author [id=" + id + ", bio=" + bio + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", language=" + language
 				+ ", dateOfBirth=" + dateOfBirth + "]";
+	}
+	
+	/*
+	 * Callback entities are a neat way of adding business logic to our entities and this
+	 * business logic is called automatically by the Persistence Provider
+	 */
+	@PrePersist
+	@PreUpdate
+	private void validateAuthorName(){
+		if(StringUtils.isBlank(firstName)){
+			throw new IllegalArgumentException("Firstname of Author cannot be empty !");
+		}
+		if(StringUtils.isBlank(lastName)){
+			throw new IllegalArgumentException("Lastname of Author cannot be empty");
+		}
 	}
 	
 }
