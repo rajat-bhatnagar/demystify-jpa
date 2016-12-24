@@ -17,6 +17,7 @@ import model.entity.Musician;
 import service.impl.AuthorServiceImpl;
 import service.impl.BookServiceImpl;
 import service.impl.CDServiceImpl;
+import service.impl.MusicianQueryServiceImpl;
 import service.impl.MusicianServiceImpl;
 import bl.types.Language;
 
@@ -120,5 +121,19 @@ public class BookAuthorApplication {
 		newCD.setMusicians(indianMusicians);
 		CD addedCDwithCascadeADD = cdService.createCD(newCD);
 		System.out.println("New CD with musicians added # "+addedCDwithCascadeADD);
+		
+		//Find musicians
+		MusicianQueryServiceImpl musiciansQueryService = new MusicianQueryServiceImpl(entityManager);
+		musiciansQueryService.findMusiciansByQuery();
+
+		//Find musicians playing Harmonium
+		musiciansQueryService.findMusiciansByTypedQuery();
+		
+		//Find Musicians by passing arguments to JPQL
+		musiciansQueryService.findMusiciansByTypedQueryAndParameters("Musician", java.sql.Date.valueOf("2016-12-23"), "Piano");
+	
+		//Find Musicians by TypedQuery playing Instrument Tabla
+		System.out.println("Musicans Playing Tabla found # "+musiciansQueryService.findMusiciansInstrumentQuery("Tabla"));
+		
 	}
 }

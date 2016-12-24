@@ -1,5 +1,7 @@
 package service;
 
+import java.sql.Date;
+
 public interface MusicianQueryService {
 	
 	/*
@@ -15,6 +17,11 @@ public interface MusicianQueryService {
 	 * Find musicians by using JPQL , Passing parametes to JPQL and TypedQuery interface
 	 */
 	
-	void findMusiciansByTypedQueryAndParameters(String bio, String preferredInstrument);
+	void findMusiciansByTypedQueryAndParameters(String bio, Date dateOfBirth, String preferredInstrument);
+	
+	/*
+	 * Update Musicians Instrument by constructing a dynamic query
+	 */
+	boolean findMusiciansInstrumentQuery(String preferredInstrument);
 
 }
