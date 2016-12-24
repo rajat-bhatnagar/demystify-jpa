@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Table(name="university")
 /**
  * Inheritance Type Strategy can be defined on the superclass
+ * If nothing is defined JPA uses configuration by exception for strategy which is InheritanceType.SINGLE_TABLE
  * @author rajatbhatnagar
  *
  */
