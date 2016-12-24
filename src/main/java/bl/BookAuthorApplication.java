@@ -109,9 +109,9 @@ public class BookAuthorApplication {
 		 * When a CD is persisted it will automatically do an add cascade for musicians
 		 */
 		Set<Musician> indianMusicians = new HashSet<>();
-		indianMusicians.add(new Musician("A R", "Rahman", "Piano"));
-		indianMusicians.add(new Musician("Lata", "MangeshKar", "Harmonium"));
-		indianMusicians.add(new Musician("Zakir", "Hussain", "Tabla"));
+		indianMusicians.add(new Musician("A R", "Rahman", "Musician", new java.sql.Date(Calendar.getInstance().getTimeInMillis()) , 54, "Piano"));
+		indianMusicians.add(new Musician("Lata", "MangeshKar", "Musician", new java.sql.Date(Calendar.getInstance().getTimeInMillis()) , 44, "Harmonium"));
+		indianMusicians.add(new Musician("Zakir", "Hussain", "Musician", new java.sql.Date(Calendar.getInstance().getTimeInMillis()) , 44, "Tabla"));
 		CD newCD = new CD();
 		newCD.setTitle("Indian Musicians");
 		newCD.setDescription("Indian Musicians");
@@ -120,6 +120,5 @@ public class BookAuthorApplication {
 		newCD.setMusicians(indianMusicians);
 		CD addedCDwithCascadeADD = cdService.createCD(newCD);
 		System.out.println("New CD with musicians added # "+addedCDwithCascadeADD);
-		
 	}
 }
