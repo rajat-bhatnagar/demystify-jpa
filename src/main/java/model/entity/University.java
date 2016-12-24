@@ -11,6 +11,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="university")
+/**
+ * Inheritance Type Strategy can be defined on the superclass
+ * @author rajatbhatnagar
+ *
+ */
+@Inheritance(strategy=InheritanceType.JOINED)
 public class University implements Serializable {
 
 	@Id
