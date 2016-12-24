@@ -13,7 +13,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="musician")
-
+@NamedQueries({
+	@NamedQuery(name="Musician.findActor", query="select m from Musician m where m.bio='Actor'")
+})
 public class Musician implements Serializable {
 
 	private static final long serialVersionUID = 1L;

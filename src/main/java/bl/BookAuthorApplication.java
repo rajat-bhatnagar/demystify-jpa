@@ -135,5 +135,8 @@ public class BookAuthorApplication {
 		//Find Musicians by TypedQuery playing Instrument Tabla
 		System.out.println("Musicans Playing Tabla found # "+musiciansQueryService.findMusiciansInstrumentQuery("Tabla"));
 		
+		//Find Musicans who are actors using @NamedQuery
+		System.out.println("Musicians who are Actors # "+musiciansQueryService.findMusiciansActors());
+		
 	}
 }

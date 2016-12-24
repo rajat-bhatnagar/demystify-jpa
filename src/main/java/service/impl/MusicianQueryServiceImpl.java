@@ -86,5 +86,20 @@ public class MusicianQueryServiceImpl implements MusicianQueryService {
 		return musicianFound;
 	}
 
-
+	@Override
+	public boolean findMusiciansActors() {
+		/*
+		 * Constructing a TypedQuery based of a named query defined in Musician entity
+		 */
+		boolean musiciansFound = false;
+		TypedQuery<Musician> findMusiciansWhoAreActors = entityManager.createNamedQuery("Musician.findActor", Musician.class);
+		List<Musician> actorMusicians = findMusiciansWhoAreActors.getResultList();
+		if(!actorMusicians.isEmpty()){
+			musiciansFound = true;
+			for(Musician musician : actorMusicians){
+				System.out.println("ActorMusician # "+musician);
+			}
+		}
+		return musiciansFound;
+	}
 }

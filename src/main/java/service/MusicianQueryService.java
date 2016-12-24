@@ -23,5 +23,9 @@ public interface MusicianQueryService {
 	 * Update Musicians Instrument by constructing a dynamic query
 	 */
 	boolean findMusiciansInstrumentQuery(String preferredInstrument);
-
+	
+	/*
+	 * Find musicians who are Actors using a NamedQuery
+	 */
+	boolean findMusiciansActors();
 }
