@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="book-persistence-unit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<mapping-file>META-INF/cd_mapping.xml</mapping-file>
+		<!-- <mapping-file>META-INF/cd_mapping.xml</mapping-file> -->
+		<mapping-file>META-INF/default-listener.xml</mapping-file>
 		<class>model.entity.Book</class>
 		<class>model.entity.Author</class>
 		<class>model.entity.CD</class>

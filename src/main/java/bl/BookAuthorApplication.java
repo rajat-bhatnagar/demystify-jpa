@@ -143,7 +143,7 @@ public class BookAuthorApplication {
 		 * Illegal Argument exception will be thrown
 		 */
 
-		// = authorService.createAuthor("Thriller Specialist", "Sydney", "", Language.GERMAN, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+		//authorService.createAuthor("Thriller Specialist", "Sydney", "", Language.GERMAN, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
 		
 		
 		/*
