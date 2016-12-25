@@ -23,6 +23,7 @@ import bl.types.Language;
 
 public class BookAuthorApplication {
 	/**
+	 * Create EntityManagerFactor
 	 * Gets an Entity manager
 	 * Gets an Entity transaction
 	 */
