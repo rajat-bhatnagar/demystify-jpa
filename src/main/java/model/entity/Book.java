@@ -1,8 +1,12 @@
 package model.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.math.BigDecimal;
+
+import listeners.ValidationListener;
 
 /**
  * The persistent class for the book database table.
@@ -11,6 +15,9 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "book", schema = "rso_jpa")
 @NamedQuery(name = "Book.findAll", query = "SELECT b FROM Book b")
+@EntityListeners({
+	ValidationListener.class
+})
 public class Book implements Serializable {
 	private static final long serialVersionUID = 1L;
 

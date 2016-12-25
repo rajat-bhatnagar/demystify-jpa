@@ -39,7 +39,7 @@ public class BookAuthorApplication {
 		
 		//Add a Book
 		Book book = bookService.createBook("Spring", "123-76-7867", 564, "Spring in Action", new BigDecimal("1115.37"));
-		System.out.println("#Book : "+book);	
+		System.out.println("#Book : "+book);
 		
 		//Find a Book
 		Book findSpringbook = bookService.findBook(1L);
@@ -138,11 +138,20 @@ public class BookAuthorApplication {
 		//Find Musicans who are actors using @NamedQuery
 		System.out.println("Musicians who are Actors # "+musiciansQueryService.findMusiciansActors());
 		
-		//Try to Add an Author with no lastname
-		//Illegal Argument exception will be thrown
-		//Code is commented for now as i do not like exceptions
-		//Author badAuthor = authorService.createAuthor("Thriller Specialist", "Sydney", "", Language.GERMAN, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-		//System.out.println("Exception thrown # "+badAuthor);
+		/* The code below is commented as this will throw an error
+		 * Try to Add an Author with no lastname
+		 * Illegal Argument exception will be thrown
+		 */
+
+		// = authorService.createAuthor("Thriller Specialist", "Sydney", "", Language.GERMAN, new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+		
+		
+		/*
+		 *  The code below is commented as this will throw an error
+		 *  We have externalised the validation using @PrePersist and have registered
+		 *  The Entity Listener with Book entity
+		 */
+		// bookService.createBook("Spring", "", 564, "Spring in Action", new BigDecimal("1115.37"));
 		
 	}
 }
