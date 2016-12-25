@@ -32,7 +32,7 @@ public class BookAuthorApplication {
 	private static EntityTransaction entityTransaction = entityManager.getTransaction();
 
 	public static void main(String[] args){
-		BookServiceImpl bookService = new BookServiceImpl(entityManager, entityTransaction);
+		BookServiceImpl bookService = new BookServiceImpl(entityManager);
 			
 		//Remove a Book
 		boolean removeSpringBook = bookService.removeBook(1L);

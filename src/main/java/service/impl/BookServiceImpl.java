@@ -3,25 +3,27 @@ package service.impl;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
+import javax.transaction.Transactional;
 import model.entity.Book;
 import service.BookService;
 
+/*
+ * Commented explicit begin and commit transaction by EntityTransaction
+ * @Transactional provides transaction management for JPA
+ */
+@Transactional
 public class BookServiceImpl implements BookService{
 
 	private EntityManager entityManager;
-	private EntityTransaction entityTransaction;
+	//private EntityTransaction entityTransaction;
 	
 	/**
-	 * Inject entity manager and entity transaction
+	 * Inject entity manager
 	 */
-	public BookServiceImpl(EntityManager entityManager, EntityTransaction entityTransaction) {
+	public BookServiceImpl(EntityManager entityManager) {
 		super();
 		this.entityManager = entityManager;
-		this.entityTransaction = entityTransaction;
 	}
 
 	/**
@@ -46,9 +48,9 @@ public class BookServiceImpl implements BookService{
 		 * Last Updated Time is updated
 		 */
 		book.setLastUpdated(getCurrentTimestamp());
-		entityTransaction.begin();
+		//entityTransaction.begin();
 		entityManager.persist(book);
-		entityTransaction.commit();
+		//entityTransaction.commit();
 		return book;
 	}
 	
@@ -63,9 +65,9 @@ public class BookServiceImpl implements BookService{
 			 * Return a managed entity from a detached entity
 			 * Then Begin a transaction and remove the entity
 			 */
-			entityTransaction.begin();
+			//entityTransaction.begin();
 			entityManager.remove(entityManager.merge(removeBook));
-			entityTransaction.commit();
+			//entityTransaction.commit();
 			isBookRemoved = true;
 		}
 		return isBookRemoved;
@@ -86,9 +88,9 @@ public class BookServiceImpl implements BookService{
 		boolean isBookCostUpdated = false;
 		Book existingBook = entityManager.find(Book.class, id);
 		if(existingBook!=null){
-			entityTransaction.begin();
+			//entityTransaction.begin();
 			existingBook.setUnitCost(existingBook.getUnitCost().add(raiseCost));
-			entityTransaction.commit();
+			//entityTransaction.commit();
 			isBookCostUpdated = true;
 		}
 		return isBookCostUpdated;
